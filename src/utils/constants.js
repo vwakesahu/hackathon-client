@@ -33,11 +33,6 @@ export const chains = [
     icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/base/info/logo.png",
   },
   {
-    id: "43113",
-    name: "Avalanche Fuji",
-    icon: "https://cryptologos.cc/logos/avalanche-avax-logo.png",
-  },
-  {
     id: "80002",
     name: "Polygon Amoy",
     icon: "https://cryptologos.cc/logos/polygon-matic-logo.png",
@@ -50,17 +45,12 @@ export const chains = [
   {
     id: "58008",
     name: "Disburse",
-    icon: "/chains/disburse.png", // No public icon available, custom path
+    icon: "/chains/disburse.png",
   },
   {
     id: "11155420",
     name: "Optimism Sepolia",
     icon: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/optimism/info/logo.png",
-  },
-  {
-    id: "59141",
-    name: "Linea Sepolia",
-    icon: "/linea.png",
   },
   {
     id: "5003",

@@ -8,10 +8,14 @@ import {
 import { WagmiProvider } from "wagmi";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import {
+  arbitrumSepolia,
   baseSepolia,
   mantleSepoliaTestnet,
   monadTestnet,
   optimismSepolia,
+  polygonAmoy,
+  scrollSepolia,
+  sepolia,
 } from "viem/chains";
 import { defineChain } from "viem";
 
@@ -36,11 +40,14 @@ const config = getDefaultConfig({
   autoConnect: true,
   projectId: "be36d80bd82aef7bdb958bb467c3e570",
   chains: [
-    disburseNetwork,
     baseSepolia,
+    arbitrumSepolia,
+    polygonAmoy,
+    scrollSepolia,
     optimismSepolia,
+    sepolia,
     mantleSepoliaTestnet,
-    monadTestnet,
+    disburseNetwork,
   ],
   ssr: true,
 });
