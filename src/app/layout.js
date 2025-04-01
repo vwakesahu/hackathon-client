@@ -3,7 +3,6 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme";
 import { RainbowKitWrapper } from "@/rainbow-wallet/rainbow-provider";
-import { LeftSidebar } from "@/components/LeftSidebar";
 import Main from "@/components/main";
 
 const geistSans = localFont({
@@ -37,7 +36,7 @@ export default function RootLayout({ children }) {
         <RainbowKitWrapper>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
