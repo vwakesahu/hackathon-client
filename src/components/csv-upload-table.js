@@ -397,6 +397,8 @@ export default function CSVUploadTable() {
         args: [encodedData],
         value: grandTotal,
       });
+
+      setOpen(true);
     }
   };
 
