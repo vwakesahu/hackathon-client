@@ -22,8 +22,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: "Gaslite Drop",
-  description: "The most efficient airdrop tool",
+  title: "Disburse Network",
+  description: "",
 };
 
 export default function RootLayout({ children }) {
@@ -42,7 +42,6 @@ export default function RootLayout({ children }) {
           >
             <>
               <Main>{children}</Main>
-              
             </>
           </ThemeProvider>
         </RainbowKitWrapper>

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HeroHeader } from "@/components/hero9-header";
 import { ChevronRight } from "lucide-react";
+import Demo from "./demo";
 
 export default function HeroSection() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="max-h-screen overflow-y-hidden">
       <HeroHeader />
@@ -39,10 +41,9 @@ export default function HeroSection() {
                       size="lg"
                       variant="ghost"
                       className="h-12  rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5 hover:text-foreground"
+                      onClick={() => setOpen(true)}
                     >
-                      <Link href="/contact">
-                        <span className="text-nowrap">Watch Demo</span>
-                      </Link>
+                      <span className="text-nowrap">Watch Demo</span>
                     </Button>
                   </div>
                 </div>
@@ -57,6 +58,8 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
+
+            <Demo showVideo={open} setShowVideo={setOpen} />
 
             {/* Background Video */}
             {/* <div className="aspect-2/3 absolute inset-1 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
