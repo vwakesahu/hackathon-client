@@ -30,7 +30,7 @@ const Demo = ({ showVideo, setShowVideo }) => {
     <div className="relative pt-[56.25%]">
       <iframe
         className="absolute top-0 left-0 w-full h-full"
-        src="https://www.youtube.com/embed/OvAVM-Ll2SA?si=eeKfjUTMkISdKBtg"
+        src="https://www.youtube.com/embed/3N3qt_lVsHo?si=Cythvz01ZVcx-G1A"
         title="Protocol Demo"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
