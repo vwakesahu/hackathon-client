@@ -59,6 +59,11 @@ import TransactionDialog from "./ts-di";
 
 export default function CSVUploadTable() {
   const [csvData, setCsvData] = useState([]);
+  const [newRow, setNewRow] = useState({
+    ethereum_address: "",
+    amount: "",
+    chainId: chains[0]?.id || "", // Default to first available chain
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [editItem, setEditItem] = useState(null);
   const [editField, setEditField] = useState(null);
@@ -78,6 +83,30 @@ export default function CSVUploadTable() {
   const rowsPerPage = 10;
 
   const { writeContractAsync } = useWriteContract();
+
+  const handleAddRow = () => {
+    if (!isAddress(newRow.ethereum_address)) {
+      alert("Please enter a valid Ethereum address.");
+      return;
+    }
+
+    if (!newRow.amount || isNaN(newRow.amount)) {
+      alert("Please enter a valid amount.");
+      return;
+    }
+
+    const newEntry = {
+      id: `${Date.now()}`, // unique id
+      ...newRow,
+    };
+
+    setCsvData([...csvData, newEntry]);
+    setNewRow({
+      ethereum_address: "",
+      amount: "",
+      chainId: chains[0]?.id || "",
+    });
+  };
 
   const getChainById = (id) => {
     const found = chains.find((chain) => chain.id === id);
@@ -450,6 +479,52 @@ export default function CSVUploadTable() {
         </CardHeader>
 
         <Separator />
+
+        <div className="mb-6 border-b p-4 space-y-4">
+          <div className="text-sm font-medium">Add New Transaction</div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Input
+              placeholder="Ethereum Address"
+              value={newRow.ethereum_address}
+              onChange={(e) =>
+                setNewRow({ ...newRow, ethereum_address: e.target.value })
+              }
+            />
+            <Input
+              placeholder="Amount"
+              type="number"
+              value={newRow.amount}
+              onChange={(e) => setNewRow({ ...newRow, amount: e.target.value })}
+            />
+            <Select
+              value={newRow.chainId}
+              onValueChange={(value) =>
+                setNewRow({ ...newRow, chainId: value })
+              }
+            >
+              <SelectTrigger className="max-w-60">
+                <SelectValue placeholder="Select Chain" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {chains.map((chain) => (
+                    <SelectItem key={chain.id} value={chain.id}>
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={chain.icon}
+                          alt={chain.name}
+                          className="h-4 w-4"
+                        />
+                        {chain.name}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+            <Button onClick={handleAddRow}>Add Row</Button>
+          </div>
+        </div>
 
         <CardContent className="p-6">
           {csvData.length === 0 ? (
