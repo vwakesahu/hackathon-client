@@ -55,6 +55,7 @@ import {
   REMOTE_DEPOSIT_CONTRACT_ABI,
 } from "@/utils/contracts";
 import axios from "axios";
+import TransactionDialog from "./ts-di";
 
 export default function CSVUploadTable() {
   const [csvData, setCsvData] = useState([]);
@@ -64,6 +65,7 @@ export default function CSVUploadTable() {
   const [editValue, setEditValue] = useState("");
   const { address } = useAccount();
   const chainId = useChainId();
+  const [open, setOpen] = useState(false);
 
   const walletClient = useWalletClient();
   const publicClient = usePublicClient();
@@ -291,6 +293,7 @@ export default function CSVUploadTable() {
     // }
 
     console.log("receipt:", receipt);
+
     console.log({
       txId: hash,
       chainName: chainName,
@@ -317,6 +320,11 @@ export default function CSVUploadTable() {
         encodedData: encodedData,
       }
     );
+
+    if (data) {
+      console.log("Solver response:", data);
+      setOpen(true);
+    }
   };
 
   // Function to handle submit button click and organize data by chainId
@@ -719,6 +727,8 @@ export default function CSVUploadTable() {
           )}
         </CardContent>
       </Card>
+
+      <TransactionDialog open={open} onOpenChange={setOpen} />
     </div>
   );
 }

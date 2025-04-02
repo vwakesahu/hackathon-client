@@ -11,7 +11,6 @@ import {
   arbitrumSepolia,
   baseSepolia,
   mantleSepoliaTestnet,
-  monadTestnet,
   optimismSepolia,
   polygonAmoy,
   scrollSepolia,
@@ -30,8 +29,8 @@ const disburseNetwork = defineChain({
     decimals: 18,
   },
   rpcUrls: {
-    default: { http: ["http://35.94.203.84:8549"] },
-    public: { http: ["http://35.94.203.84:8549"] },
+    default: { http: ["http://35.94.203.84:8547"] },
+    public: { http: ["http://35.94.203.84:8547"] },
   },
 });
 

@@ -27,7 +27,7 @@ export default function HeroSection() {
                     size="lg"
                     className="h-12 rounded-full pl-5 pr-3 text-base"
                   >
-                    <Link href="/app">
+                    <Link href="/app/airdrop-eth">
                       <span className="text-nowrap">Explore App</span>
                       <ChevronRight className="ml-1" />
                     </Link>
