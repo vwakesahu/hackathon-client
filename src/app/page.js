@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <div>
       <HeroSection />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
     </div>
   );
 };
